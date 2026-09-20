@@ -69,7 +69,7 @@ display:grid;place-items:center;background:#8f250f;color:#ffd65a;font-size:12px;
 .garden{align-items:center;justify-content:center;text-align:center;background:
 radial-gradient(circle at 50% 52%,#5c3d0f 0,rgba(48,27,5,.65) 17%,transparent 45%),
 linear-gradient(#05080a,#130a02 75%,#070301)}
-.moon{position:absolute;right:10%;top:8%;width:80px;height:80px;border-radius:50%;background:#f6e9b9;box-shadow:0 0 55px #fff4b777}
+.moon{position:absolute;right:5%;top:4%;width:80px;height:80px;border-radius:50%;background:#f6e9b9;box-shadow:0 0 55px #fff4b777}
 .garden-stars{position:absolute;inset:0;background-image:radial-gradient(circle,#ffe99a 1px,transparent 1.6px);background-size:105px 85px;opacity:.4}
 .garden-content{position:relative;z-index:2;margin-top:-4vh}
 .garden h2,.section-head h2,.letter-card h2,.final h2{font-size:clamp(45px,7vw,72px);line-height:.86;color:#f8edc8;margin:0}
