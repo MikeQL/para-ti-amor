@@ -1,0 +1,396 @@
+*{box-sizing:border-box}
+:root{
+  --gold:#f7c936;--gold2:#ffe98a;--cream:#f9efc9;--ink:#120b03;
+  --brown:#241506;--muted:#d7c99e;
+}
+html,body{margin:0;width:100%;height:95%;overflow:hidden;background:#050301;color:#fff}
+body{font-family:Montserrat,Arial,sans-serif}
+button{font-family:inherit;cursor:pointer}
+#particles{position:fixed;inset:0;width:100%;height:100%;z-index:50;pointer-events:none}
+#loader{position:fixed;inset:0;z-index:100;background:#070402;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:#dfcb89;font-size:12px;letter-spacing:1.5px;transition:opacity .8s}
+#loader.hide{opacity:0;pointer-events:none}
+.loader-flower{font-size:52px;animation:pulse 1.1s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.12);filter:drop-shadow(0 0 20px #f8ce38)}}
+
+main,.screen{width:100%;height:100%}
+.screen{position:absolute;inset:0;display:none;overflow:hidden}
+.screen.active{display:flex}
+.screen.enter{animation:screenIn .9s cubic-bezier(.2,.8,.2,1)}
+@keyframes screenIn{from{opacity:0;transform:scale(1.025)}to{opacity:1;transform:none}}
+
+.hero{align-items:center;justify-content:center;text-align:center;background:
+radial-gradient(circle at 50% 38%,rgba(111,67,15,.35),transparent 35%),
+radial-gradient(circle at 50% 100%,#281707,transparent 55%),#050302}
+.hero-glow{position:absolute;width:55vw;height:55vw;max-width:650px;max-height:650px;border-radius:50%;
+background:#e8b72d12;filter:blur(45px);animation:glow 4s ease-in-out infinite}
+@keyframes glow{50%{transform:scale(1.1);opacity:.7}}
+.hero-content{position:relative;z-index:2;max-width:720px;padding:25px}
+.tiny-flowers{font-size:31px;letter-spacing:7px;filter:drop-shadow(0 0 10px #ffdc3d);margin-bottom:22px}
+.eyebrow{font-size:10px;letter-spacing:4px;color:#d9bc61;margin:0 0 15px;font-weight:600}
+h1,h2{font-family:"Cormorant Garamond",serif;font-weight:500}
+.hero h1{font-size:clamp(52px,8vw,90px);line-height:.8;margin:0;color:#f8edc7}
+h1 em,h2 em{font-style:italic;color:#f4cc43}
+.hero-sub{font-family:"Cormorant Garamond",serif;color:#cfc19d;font-size:18px;line-height:1.35;margin:30px 0 22px}
+.envelope{width:165px;height:115px;margin:15px auto 22px;position:relative;cursor:pointer;filter:drop-shadow(0 18px 30px #000)}
+.envelope-back{position:absolute;inset:0;background:linear-gradient(145deg,#c79625,#7c5110);border-radius:5px}
+.letter-paper{position:absolute;
+  width:125px;
+  height:92px;
+  left:20px;
+  top:5px;
+  background:#fff8dc;
+  color:#59400e;
+  padding:15px 9px;
+  font:15px "Cormorant Garamond",serif;
+
+  /* OCULTA LA CARTA CUANDO EL SOBRE ESTÁ CERRADO */
+  opacity:0;
+  transform:translateY(0);
+
+  /* Duración de la aparición */
+  transition:opacity 2s ease, transform 2s ease;
+
+  z-index:1;}
+.letter-paper strong{display:block;font-size:28px;color:#d39d12;margin-top:10px}
+.envelope-flap{position:absolute;z-index:3;left:0;top:0;width:0;height:0;border-left:82px solid transparent;border-right:82px solid transparent;border-top:62px solid #e0b53a;transform-origin:top;transition:2s}
+.seal{position:absolute;z-index:5;left:50%;top:52px;transform:translate(-50%,-50%);width:28px;height:28px;border-radius:50%;
+display:grid;place-items:center;background:#8f250f;color:#ffd65a;font-size:12px;box-shadow:0 3px 8px #0007;transition:.5s}
+.envelope.open .envelope-flap{transform:rotateX(175deg);z-index:0}
+.envelope.open .letter-paper{opacity:1; transform:translateY(10px)}
+.envelope.open .seal{opacity:0}
+.main-btn,.outline-btn,.ghost-btn{border:0;border-radius:30px;padding:14px 25px;font-size:11px;letter-spacing:1.5px;font-weight:700;transition:.3s}
+.main-btn{background:linear-gradient(135deg,#ffe36b,#e9ac12);color:#2b1a02;box-shadow:0 10px 30px #e5b32124}
+.main-btn:hover{transform:translateY(-3px);box-shadow:0 15px 35px #e5b32142}
+.main-btn span{margin-left:15px}
+.tap-hint{font-size:9px;color:#897e64;margin-top:12px;letter-spacing:1px}
+.scroll-note{position:absolute;bottom:35px;font-size:9px;color:#8b7b57;letter-spacing:2px;text-transform:uppercase;animation:float 2s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-6px)}}
+
+.garden{align-items:center;justify-content:center;text-align:center;background:
+radial-gradient(circle at 50% 52%,#5c3d0f 0,rgba(48,27,5,.65) 17%,transparent 45%),
+linear-gradient(#05080a,#130a02 75%,#070301)}
+.moon{position:absolute;right:10%;top:8%;width:80px;height:80px;border-radius:50%;background:#f6e9b9;box-shadow:0 0 55px #fff4b777}
+.garden-stars{position:absolute;inset:0;background-image:radial-gradient(circle,#ffe99a 1px,transparent 1.6px);background-size:105px 85px;opacity:.4}
+.garden-content{position:relative;z-index:2;margin-top:-4vh}
+.garden h2,.section-head h2,.letter-card h2,.final h2{font-size:clamp(45px,7vw,72px);line-height:.86;color:#f8edc8;margin:0}
+.garden-copy{font:18px/1.3 "Cormorant Garamond",serif;color:#cfc09b;margin:24px 0}
+.bouquet{width:330px;height:300px;position:relative;margin:15px auto 5px}
+.flower{
+  position:absolute;
+  width:95px;
+  height:95px;
+  border-radius:50%;
+  background:repeating-conic-gradient(
+    #ffdb24 0 12deg,
+    #ffe86d 12deg 24deg
+  );
+  filter:drop-shadow(0 0 10px #ffd22f);
+  animation:sway 3s ease-in-out infinite;
+  transform-origin:50% 100%;
+  z-index:3;
+}
+
+.flower i{
+  position:absolute;
+  width:43px;
+  height:43px;
+  border-radius:50%;
+  left:26px;
+  top:26px;
+  background:radial-gradient(circle,#6e2d08,#2a0d03 70%);
+  box-shadow:inset 0 0 8px #000;
+}
+
+.flower b{
+  position:absolute;
+  width:8px;
+  height:45px;
+  left:43px;
+  top:88px;
+  background:#436e13;
+  border-radius:8px;
+}
+
+
+/* =========================
+   FLORES DEL RAMO
+   ========================= */
+
+.f1{
+  left:15px;
+  top:70px;
+  --s:1;
+  --r:-38deg;
+  animation-delay:-1s;
+}
+
+.f2{
+  left:57px;
+  top:22px;
+  --s:1;
+  --r:-25deg;
+  animation-delay:-2s;
+}
+
+.f3{
+  left:120px;
+  top:10px;
+  --s:1;
+  --r:0deg;
+  animation-delay:-1.4s;
+}
+
+.f4{
+  left:175px;
+  top:22px;
+  --s:1;
+  --r:25deg;
+  animation-delay:-2.4s;
+}
+
+.f5{
+  left:210px;
+  top:70px;
+  --s:1;
+  --r:38deg;
+  animation-delay:-1.7s;
+}
+
+.f6{
+  left:160px;
+  top:105px;
+  --s:1;
+  --r:36deg;
+  animation-delay:-.8s;
+}
+
+.f7{
+  left:75px;
+  top:105px;
+  --s:1;
+  --r:-36deg;
+  animation-delay:-2.7s;
+}
+
+.f8{
+  left:115px;
+  top:95px;
+  --s:1;
+  --r:0deg;
+  animation-delay:-2.7s;
+}
+
+
+/* =========================
+   MOVIMIENTO DE LAS FLORES
+   ========================= */
+
+@keyframes sway{
+
+  0%,100%{
+    transform:
+      translateY(0)
+      rotate(var(--r))
+      scale(var(--s));
+  }
+
+  50%{
+    transform:
+      translateY(-7px)
+      rotate(calc(var(--r) + 3deg))
+      scale(var(--s));
+  }
+
+}
+.stems{position:absolute;left:85px;top:130px;width:175px;height:120px;border-left:4px solid #456e14;border-radius:50%;transform:rotate(-10deg)}
+.stems2{position:absolute;left:85px;top:130px;width:175px;height:120px;border-left:4px solid #456e14;border-radius:50%;transform:scaleX(-1) rotate(-10deg);}
+.bouquet-ribbon{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);width:52px;height:55px;border-radius:7px;background:#a92d1e;color:#ffd86a;display:grid;place-items:center;z-index:5;box-shadow:0 5px 15px #0007}
+.ghost-btn{background:transparent;color:#e8cd73;border:1px solid #6f5c2e}
+.ghost-btn:hover{background:#e6bd3212}
+
+.gallery{background:radial-gradient(circle at 50% 45%,#39220a,#0b0703 62%,#030201);align-items:center;justify-content:center;flex-direction:column}
+.section-head{text-align:center;position:absolute;top:8%;z-index:5}
+.photo-stage{
+  position:relative;
+  width:min(800px,95vw);
+  height:min(520px,66vh);
+  margin-top:70px;
+}
+
+.polaroid{
+  position:absolute;
+  width:220px;
+  background:#f9f2d9;
+  padding:10px 10px 28px;
+  box-shadow:0 18px 40px #0009;
+  transform-origin:center bottom;
+
+  transition:
+    transform .7s cubic-bezier(.2,.8,.2,1),
+    filter .4s;
+
+  cursor:pointer;
+  color:#3e2a0d;
+}
+
+.polaroid img{
+  display:block;
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  object-position:center;
+}
+
+.polaroid span{
+  display:block;
+  text-align:center;
+  font:17px "Cormorant Garamond",serif;
+  margin-top:10px;
+}
+
+
+/* FOTO 1 */
+.p-a{
+  left:0%;
+  top:20%;
+  transform:rotate(-5deg);
+  z-index:2;
+}
+
+
+/* FOTO 2 */
+.p-b{
+  right:0%;
+  top:20%;
+  transform:rotate(5deg);
+  z-index:3;
+}
+
+
+/* FOTO 3 */
+.p-c{
+  left:22%;
+  bottom:5%;
+  transform:rotate(5deg);
+  z-index:1;
+}
+
+
+/* FOTO 4 */
+.p-d{
+  right:22%;
+  bottom:3%;
+  transform:rotate(-5deg);
+  z-index:2;
+}
+
+
+/* EFECTO AL PASAR EL MOUSE */
+.polaroid:hover{
+  z-index:10;
+  transform:translateY(-18px) rotate(0) scale(1.05);
+  filter:brightness(1.03);
+}
+
+.gallery-actions{display:flex;gap:12px;align-items:center;position:absolute;bottom:5%;z-index:10}
+.circle-btn{width:43px;height:43px;border-radius:50%;background:#281905;border:1px solid #876d2d;color:#f4d15d;font-size:18px}
+@media(max-width:700px){
+
+  .photo-stage{
+    width:96vw;
+    height:62vh;
+    margin-top:95px;
+  }
+
+  .polaroid{
+    width:145px;
+    padding:7px 7px 19px;
+  }
+
+  .polaroid img{
+    height:145px;
+  }
+
+  .polaroid span{
+    font-size:12px;
+  }
+
+
+  /* FOTO 1 */
+  .p-a{
+    left:2%;
+    top:5%;
+    transform:rotate(0deg);
+  }
+
+
+  /* FOTO 2 */
+  .p-b{
+    right:26.5%;
+    top:5%;
+    transform:rotate(0deg);
+  }
+
+
+  /* FOTO 3 */
+  .p-c{
+    left:26.5%;
+    bottom:5%;
+    transform:rotate(0deg);
+  }
+
+
+  /* FOTO 4 */
+  .p-d{
+    right:2%;
+    bottom:5%;
+    transform:rotate(0deg);
+  }
+
+
+  .section-head{
+    top:5%;
+  }
+
+  .section-head h2{
+    font-size:42px;
+  }
+
+  .moon{
+    width:55px;
+    height:55px;
+  }
+}
+
+.letter-section{align-items:center;justify-content:center;background:
+radial-gradient(circle at 50% 30%,#56360e,#110a03 58%,#030201)}
+.letter-card{width:min(660px,92vw);max-height:91vh;overflow:auto;text-align:center;padding:35px 50px 40px;
+background:linear-gradient(135deg,rgba(249,239,201,.98),rgba(230,204,133,.97));color:#3c270c;
+box-shadow:0 25px 80px #000b;border-radius:4px;position:relative}
+.card-flower{font-size:48px;margin-bottom:5px;filter:drop-shadow(0 4px 5px #9b6d17)}
+.letter-card .eyebrow{color:#8d6a1c}.letter-card h2{color:#4b300b;font-size:52px}
+.divider{color:#b1801a;margin:15px 0;font-size:18px}
+.letter-text{font:19px/1.5 "Cormorant Garamond",serif;text-align:left;margin:14px 0;color:#493516}
+.letter-text strong{color:#8a5b08}.signature{font:19px "Cormorant Garamond",serif;margin:25px 0 22px;text-align:right}.signature span{font-size:27px;color:#9b6110}
+.letter-card .main-btn{font-size:10px}
+@media(max-width:600px){.letter-card{padding:25px 22px}.letter-card h2{font-size:40px}.letter-text{font-size:17px}}
+
+.final{align-items:center;justify-content:center;text-align:center;background:
+radial-gradient(circle at 50% 40%,#5a3a0e 0,rgba(62,37,6,.4) 20%,transparent 52%),#050301}
+.final-content{position:relative;z-index:2;padding:20px}
+.final-flower{font-size:100px;filter:drop-shadow(0 0 28px #ffd83e);animation:finalFloat 3s ease-in-out infinite}
+@keyframes finalFloat{50%{transform:translateY(-10px) rotate(2deg)}}
+.final h2{font-size:clamp(55px,8vw,86px)}
+.final-copy{font:20px/1.4 "Cormorant Garamond",serif;color:#d8c99e;margin:28px 0}
+.heart-line{color:#f0c63d;letter-spacing:5px;font-size:14px}
+.forever{font:24px "Cormorant Garamond",serif;color:#f5df91}
+.outline-btn{margin-top:10px;background:transparent;border:1px solid #a78532;color:#e7cb70}
+
+.music-btn{position:fixed;z-index:80;right:17px;top:17px;width:38px;height:38px;border-radius:50%;border:1px solid #876e2e;
+background:#211404d9;color:#f6d36c;box-shadow:0 5px 20px #0008;font-size:16px;display:none}
+.music-btn.visible{display:block}
+.music-btn.playing{animation:musicPulse 1.5s ease-in-out infinite}
+@keyframes musicPulse{50%{box-shadow:0 0 25px #f5ca3c55}}
+
+.progress{position:fixed;bottom:15px;left:50%;transform:translateX(-50%);z-index:70;display:flex;gap:7px}
+.dot{width:5px;height:5px;border-radius:50%;background:#66572e;transition:.3s}.dot.active{width:22px;border-radius:4px;background:#edc842}

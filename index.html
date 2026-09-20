@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#120b03">
+  <title>Para ti, mi amor 🌻</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="loader"><div class="loader-flower">🌻</div><span>Preparando tu sorpresa Michelle...</span></div>
+  <canvas id="particles"></canvas>
+
+  <audio id="music" preload="auto" loop>
+    <source src="assets/cancion.weba" type="audio/webm">
+  </audio>
+
+  <button class="music-btn" id="musicBtn" aria-label="Música">♫</button>
+
+  <main>
+    <!-- 01: PORTADA -->
+    <section class="screen hero active" id="hero">
+      <div class="hero-glow"></div>
+      <div class="hero-content">
+        <div class="tiny-flowers">🌻 ✦ 🌻</div>
+        <p class="eyebrow">UNA PEQUEÑA SORPRESA PARA TI AMOR</p>
+        <h1>Para Mich, <br><em>mi persona favorita</em></h1>
+        <p class="hero-sub">Hay personas que llegan a tu vida y, sin hacer ruido,<br>se convierten en hogar.</p>
+
+        <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Abrir sorpresa">
+          <div class="envelope-back"></div>
+          <div class="letter-paper">
+            <span>Para ti, con amor</span>
+            <strong>♥</strong>
+          </div>
+          <div class="envelope-flap"></div>
+          <div class="seal">♥</div>
+        </div>
+
+        <button class="main-btn" id="openBtn">ABRIR MI SORPRESA <span>→</span></button>
+        <p class="tap-hint">Toca el sobre o el botón</p>
+      </div>
+      <div class="scroll-note">desliza para comenzar</div>
+    </section>
+
+    <!-- 02: FLORES -->
+    <section class="screen garden" id="garden">
+      <div class="moon"></div>
+      <div class="garden-stars"></div>
+      <div class="garden-content">
+        
+        <h2>Mi amor por ti<br><em>sigue floreciendo</em></h2>
+        <p class="garden-copy">Y si pudiera regalarte algo que nunca se marchite,<br>te regalaría todo lo que siento por ti.</p>
+        <p class="garden-copy">FELIZ DÍA DE LAS FLORES AMARILLAS</p>
+
+        <div class="bouquet" aria-hidden="true">
+          <div class="flower f1"><i></i><b></b></div>
+          <div class="flower f2"><i></i><b></b></div>
+          <div class="flower f3"><i></i><b></b></div>
+          <div class="flower f4"><i></i><b></b></div>
+          <div class="flower f5"><i></i><b></b></div>
+          <div class="flower f6"><i></i><b></b></div>
+          <div class="flower f7"><i></i><b></b></div>
+          <div class="flower f8"><i></i><b></b></div>
+          <div class="stems"></div>
+          <div class="stems2"></div>
+          <div class="bouquet-ribbon">♥</div>
+        </div>
+
+        <button class="ghost-btn next" data-next="gallery">ver nuestros recuerdos ↓</button>
+      </div>
+    </section>
+
+    <!-- 03: FOTOS -->
+    <section class="screen gallery" id="gallery">
+      <div class="section-head">
+        <p class="eyebrow">NUESTROS RECUERDOS</p>
+        <h2>Momentos que quiero<br><em>guardar para siempre</em></h2>
+      </div>
+
+      <div class="photo-stage">
+        <article class="polaroid p-a">
+          <img src="assets/foto1.webp" alt="Nuestro recuerdo 1">
+          <span>Contigo todo se siente más bonito.</span>
+        </article>
+        <article class="polaroid p-b">
+          <img src="assets/foto2.webp" alt="Nuestro recuerdo 2">
+          <span>Quiero seguir descubriendo el mundo contigo.</span>
+        </article>
+        <article class="polaroid p-c">
+          <img src="assets/foto3.webp" alt="Nuestro recuerdo 3">
+          <span>Mi sonrisa favorita siempre será la tuya.</span>
+        </article>
+        <article class="polaroid p-d">
+          <img src="assets/foto4.webp" alt="Nuestro recuerdo 4">
+          <span>Que nunca nos falten aventuras.</span>
+        </article>
+      </div>
+
+      <div class="gallery-actions">
+        <button class="circle-btn" id="shuffleBtn" title="Cambiar posición">✦</button>
+        <button class="main-btn" data-next="letter">Quiero decirte algo <span>→</span></button>
+      </div>
+    </section>
+
+    <!-- 04: CARTA -->
+    <section class="screen letter-section" id="letter">
+      <div class="letter-card">
+        <div class="card-flower">🌻</div>
+        <p class="eyebrow">UNA CARTA PARA TI AMOR MÍO, DE UN ECUATORIANO ENAMORADO 🌻</p>
+        <h2>Mi Hogar siempre será donde estés tú, amor.</h2>
+        <div class="divider">✦</div>
+        <p class="letter-text">
+          Contigo entendí que el amor también puede sentirse como paz.
+          Como esa sensación de poder bajar la guardia, respirar profundo
+          y saber que estás con alguien que hace que el mundo se sienta un
+          poquito más bonito.
+        </p>
+        <p class="letter-text">
+          Quiero caminar contigo por cada etapa de la vida. Quiero verte
+          cumplir tus sueños, cumplir los míos y, sobre todo, construir los
+          nuestros. Quiero que algún día miremos atrás y podamos decir:
+          <strong>“Lo conseguimos juntos”.</strong>
+        </p>
+        <p class="letter-text">
+          No necesito una vida perfecta. Solo quiero una vida en la que
+          podamos crecer, reír, equivocarnos, aprender y seguir eligiéndonos.
+          Porque para mí, hogar ya no es solamente un lugar.
+          <strong>Hogar también eres tú.</strong>
+        </p>
+        <p class="signature">Con todo mi amor, siempre tuyo<br><span>Michael Quintana ♥</span></p>
+        <button class="main-btn" data-next="final">Hay algo más... <span>→</span></button>
+      </div>
+    </section>
+
+    <!-- 05: FINAL -->
+    <section class="screen final" id="final">
+      <div class="final-particles"></div>
+      <div class="final-content">
+        <div class="final-flower">🌻</div>
+        <p class="eyebrow">Y SI ALGÚN DÍA LO OLVIDAS...</p>
+        <h2>Te elegiría<br><em>una y mil veces.</em></h2>
+        <p class="final-copy">
+          Gracias por ser mi paz, mi alegría, mi compañera de sueños<br>
+          y ese lugar al que mi corazón siempre quiere volver.
+        </p>
+        <div class="heart-line">♥　♥　♥</div>
+        <p class="forever">Tú + Yo + Nuestros Sueños = Felicidad.</p>
+        <button class="outline-btn" id="restart">volver a vivirlo ↻</button>
+      </div>
+    </section>
+  </main>
+
+  <div class="progress">
+    <span class="dot active"></span><span class="dot"></span><span class="dot"></span>
+    <span class="dot"></span><span class="dot"></span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
